@@ -61,7 +61,12 @@ if you want to make up something you put it behind a data-key so in the above
 we are hooking up the data-key to the audio element for that key-->
 
 <script>
-
+    window.addEventListener('keydown', function(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        console.log(audio);
+        if(!audio) return; //stops the funtion from running all together
+        audio.play();
+    });
 </script>
 
 </body>
